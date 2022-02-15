@@ -22,11 +22,11 @@ class Th2o_1d_spline: public spline3<Tval,spline_grid_v <Tval> >
 {
 public:
     std::string inp_tag;
-    std::string out_tag;
+    std::string out_tg;
     Th2o_1d_spline(const Tval* x, const Tval* y, int n, const char* ot, const char* it="Pressure"):
         spline3<Tval,spline_grid_v <Tval> >(x,y,n),
         inp_tag(it),
-        out_tag(ot)
+        out_tg(ot)
     {
     }
 };
@@ -89,7 +89,7 @@ class Th2o_2d_spline
         }
     }
 public:
-    std::string out_tag[Nvars];
+    std::string out_tg[Nvars];
     std::string inp_tag_x;
     std::string inp_tag_y;
     Th2o_2d_spline()
@@ -141,7 +141,7 @@ public:
             memcpy(data[i],d[i]->data,siz1);
             memcpy(datax[i],d[i]->datax,siz1);
             memcpy(datay[i],d[i]->datay,siz1);
-            out_tag[i]=ot[i];
+            out_tg[i]=ot[i];
         }
     }
     ~Th2o_2d_spline()
